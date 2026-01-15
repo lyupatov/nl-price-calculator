@@ -9,4 +9,4 @@ COPY ./src ./src
 
 ENV PYTHONPATH=/app
 
-CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["sh", "-c", "python -m src.db.init_db && uvicorn src.main:app --host 0.0.0.0 --port 8000"]
